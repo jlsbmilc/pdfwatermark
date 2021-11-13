@@ -82,5 +82,3 @@ def add_watermark():
 
 if __name__ == 'main':
     add_watermark()
-
-add_watermark()
