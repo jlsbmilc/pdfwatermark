@@ -80,5 +80,5 @@ def add_watermark():
 
     os.remove(watermark)    
 
-if __name__ == 'main':
+if __name__ == '__main__':
     add_watermark()
