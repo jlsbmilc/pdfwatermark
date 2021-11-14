@@ -22,9 +22,7 @@ def choose_file():
         else:
             return choose_file()
     else:
-        sleep(2)
         chosen_file = chosen_file.replace("/","\\\\")
-        print(f"You chose a following file: {chosen_file}")
         return chosen_file
 
 
@@ -56,17 +54,13 @@ def add_watermark():
     working_path = os.path.dirname(user_file)
     out_file_name = file_name+"_modified.pdf"
     output = os.path.join(working_path,out_file_name)
-    print(f"Used output path: {output}")
     watermark = create_watermark(working_path,file_name)
-    sleep(2)
     with open(watermark, "rb") as f:
         watermark_obj = PdfFileReader(f)
         watermark_page = watermark_obj.getPage(0)
 
         input_pdf = user_file
         pdf_reader = PdfFileReader(open(input_pdf,"rb"))
-        print(f"Source file to be modified: {input_pdf}")
-        sleep(2)
         pdf_writer = PdfFileWriter()
 
         # Watermark all the pages
@@ -82,3 +76,5 @@ def add_watermark():
 
 if __name__ == '__main__':
     add_watermark()
+    print("Program ended execution. Good bye.")
+    sleep(2)
